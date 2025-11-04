@@ -187,8 +187,8 @@ Include:
 Make it sound like a professional photographer's shot list. Return ONLY the enhanced prompt, no explanations."""
         
         msg = UserMessage(text=enhancement_request)
-        response = await chat.send_message_and_wait_response(msg)
-        enhanced_prompt = response.text.strip()
+        enhanced_prompt = await chat.send_message(msg)
+        enhanced_prompt = enhanced_prompt.strip()
         
         return PromptResponseModel(prompt=enhanced_prompt)
     
